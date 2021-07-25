@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        user-select: none;
+        transition: 0.5s;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #heading {
+        background-color: black;
+        color: white;
+        padding: 1.5%;
+        border-radius: 3%;
+        font-size: 2.5rem;
+    }
+
+    .click-me {
+        background-color: transparent;
+        color: black;
+        font-size: 1rem;
+        text-transform: uppercase;
+        border: 2px solid black;
+        font-family: 'Montserrat', sans-serif;
+        border-radius: 3%;
+        transition: .5s;
+        padding: 1%;
+        cursor: pointer;
+        letter-spacing: 5px;
+        font-weight: 1000;
+        -webkit-tap-highlight-color: #0000;
+    }
+
+    .click-me:hover {
+        background-color: black;
+        color: white;
+    }
+
+    @media (max-width: 772px) {
+        #heading {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        #heading {
+            font-size: .8rem;
+        }
+        .click-me {
+            font-size: .7rem;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2 id="heading">Background color: <span class="color">#FFF</span></h2>
+        <button class="click-me">Click me!</button>
+    </div>
+
+    <script>
+        alert('This code is nothing special because I just did this in my free time, just for fun. But still upvote if you like!');
+        var body = document.querySelector('body');
+        var button = document.querySelector('button');
+        var color = document.querySelector('.color');
+
+        button.addEventListener('click', changeColor);
+
+        function changeColor(e) {
+            e.preventDefault();
+
+            var letters = "0123456789ABCDEF";
+            var colorChanger = '#';
+            for (var i = 0; i < 6; i++)
+                colorChanger += letters[(Math.floor(Math.random() * 16))];
+
+            color.innerText = colorChanger;
+            body.style.backgroundColor = colorChanger;
+        }
+    </script>
+</body>
+
+</html>
